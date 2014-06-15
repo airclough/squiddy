@@ -1,6 +1,7 @@
 define(
-  [ 'backbone' ],
-  function( Backbone ) {
+  [ 'backbone',
+    'views/sidebar' ],
+  function( Backbone, SidebarView ) {
     'use strict';
 
     return Backbone.View.extend({
@@ -13,11 +14,17 @@ define(
       },
 
       initialize: function() {
-        this.render();
+        this.render()
+          .renderSidebar();
       },
 
       render: function() {
         this.$el.html( this.template() );
+        return this;
+      },
+
+      renderSidebar: function() {
+        this.$sidebar = new SidebarView( { el: this.$el.find( '#sidebar' ) } );
         return this;
       }
     });
