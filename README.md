@@ -1,3 +1,3 @@
-# Sentinel
+# Squiddy
 
-> "Autonomous DOM Manipulation for Angelrush campaigns."
+> "A Sentinel. It's a killing machine designed for one thing. Autonomous DOM manipulation."
