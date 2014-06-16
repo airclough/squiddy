@@ -1,5 +1,8 @@
 'use strict';
 
+// tests
+require( '../tests/phantom' );
+
 // seeds
 // require( '../seeds/campaigns' );
 
