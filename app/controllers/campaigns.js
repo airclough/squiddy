@@ -1,6 +1,7 @@
 'use strict';
 
 var MongoClient = require( 'mongodb' ).MongoClient;
+
 var mongo;
 
 MongoClient.connect( 'mongodb://localhost:27017/squiddy', function( err, db ) {

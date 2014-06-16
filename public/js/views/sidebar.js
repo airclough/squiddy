@@ -11,7 +11,7 @@ define(
             + '</div>'
             + '<div class="info">'
               + '<div class="position">Angelrush</div>'
-              + '<div class="email">robby.fairclough@gmail.com</div>'
+              + '<div class="email">Robby Fairclough</div>'
             + '</div>'
           + '</div>'
           + '<ul class="menu">'

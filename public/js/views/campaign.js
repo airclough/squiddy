@@ -31,13 +31,15 @@ define(
       },
 
       runTest: function() {
-        var testModel = new TestModel( { campaignID: this.model.get( 'id' ) } );
-        this.listenTo( testModel, 'sync', this.fireHashChange );
-        testModel.save();
+        this.testModel = new TestModel( { campaignID: this.model.get( 'id' ) } );
+        this.listenTo( this.testModel, 'sync', this.fireHashChange );
+        this.testModel.save();
       },
 
       fireHashChange: function( model ) {
-        events.trigger( 'router:hashChange', 'tests/' + model.id );
+        console.log( this.testModel );
+        console.log( this.testModel.get( '_id' ) );
+        events.trigger( 'router:hashChange', 'tests/' + this.testModel.get( '_id' ) );
       }
     });
   }

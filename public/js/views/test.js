@@ -20,7 +20,20 @@ define(
 
       render: function() {
         this.$el.html( this.template() );
+        this.poll();
         return this;
+      },
+
+      poll: function() {
+        var that = this;
+        var to = setTimeout( function() {
+          if( !that.model.get( 'complete' ) ) {
+            that.model.fetch();
+            that.poll();
+          }
+
+          clearTimeout( to );
+        }, 2000 );
       }
     });
   }
