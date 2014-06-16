@@ -1,11 +1,14 @@
 define(
   [ 'backbone',
     'models/campaign',
+    'models/test',
     'collections/tests',
     'views/sidebar',
     'views/dashboard',
-    'views/campaign' ],
-  function( Backbone, CampaignModel, TestsCollection, SidebarView, DashboardView, CampaignView ) {
+    'views/campaign',
+    'views/test' ],
+  function( Backbone, CampaignModel, TestModel, TestsCollection, SidebarView,
+    DashboardView, CampaignView, TestView ) {
     'use strict';
 
     return Backbone.View.extend({
@@ -45,6 +48,12 @@ define(
           model: campaignModel,
           collection: testsCollection
         }).el );
+      },
+
+      renderTest: function( id ) {
+        var testModel = new TestModel( { _id: id } );
+
+        this.$main.html( new TestView( { model: testModel } ).el );
       }
     });
   }

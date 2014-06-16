@@ -6,11 +6,13 @@ var phantomjs = require( 'phantomjs' );
 
 var binPath = phantomjs.path;
 
-var childArgs = [
-  path.join( __dirname, 'healthrx.js' ),
-  '80085'
-];
+module.exports = function( s4 ) {
+  var childArgs = [
+    path.join( __dirname, 'healthrx.js' ),
+    s4
+  ];
 
-childProcess.execFile( binPath, childArgs, function( err, stdout, stderr ) {
-  console.log( err, stdout, stderr );
-});
+  childProcess.execFile( binPath, childArgs, function( err, stdout, stderr ) {
+    console.log( err, stdout, stderr );
+  });
+};

@@ -4,7 +4,9 @@ define(
     'use strict';
 
     return Backbone.Model.extend({
-      idAttribute: 'id'
+      idAttribute: '_id',
+
+      urlRoot: '/api/tests'
     });
   }
 );

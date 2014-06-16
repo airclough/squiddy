@@ -1,18 +1,26 @@
 define(
   [ 'backbone',
+    'events',
     'views/app' ],
-  function( Backbone, AppView ) {
+  function( Backbone, events, AppView ) {
     'use strict';
 
     return Backbone.Router.extend({
       routes: {
-        ''            : 'dashboard',
-        'dashboard'   : 'dashboard',
-        'campaign/:id': 'campaign'
+        ''             : 'dashboard',
+        'dashboard'    : 'dashboard',
+        'campaigns/:id': 'campaign',
+        'tests/:id'    : 'test'
       },
 
       initialize: function() {
         this.appView = new AppView();
+
+        events.on( 'router:hashChange', this.hashChange, this );
+      },
+
+      hashChange: function( url ) {
+        this.navigate( url, { trigger: true } );
       },
 
       dashboard: function() {
@@ -22,6 +30,10 @@ define(
 
       campaign: function( id ) {
         this.appView.renderCampaign( id );
+      },
+
+      test: function( id ) {
+        this.appView.renderTest( id );
       }
     });
   }
