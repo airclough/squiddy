@@ -6,15 +6,22 @@ define(
 
     return Backbone.Router.extend({
       routes: {
-        '': 'index'
+        ''            : 'dashboard',
+        'dashboard'   : 'dashboard',
+        'campaign/:id': 'campaign'
       },
 
       initialize: function() {
         this.appView = new AppView();
       },
 
-      index: function() {
+      dashboard: function() {
+        this.navigate( 'dashboard', { trigger: false } );
+        this.appView.renderDashboard();
+      },
 
+      campaign: function( id ) {
+        this.appView.renderCampaign( id );
       }
     });
   }

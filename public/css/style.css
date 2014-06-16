@@ -47,20 +47,60 @@ html, body {
   background-color: #f2f2f2;
 }
 
-h1 {
-  font-size: 3em;
+h2 {
+  font-size: 2em;
   font-weight: 900;
 }
 
-h2 {
-  font-size: 2.5em;
+/* classes */
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
+
+.btn-orange {
+  display: inline-block;
+  position: relative;
+  height: 48px;
+  padding: 0 16px;
+  line-height: 48px;
+  color: #f2f2f2;
   font-weight: 900;
+  background-color: #eb783b;
+  border: 1px solid #d16b34;
+  border-radius: 4px;
+}
+
+.btn-orange:hover {
+  background-color: #de7138;
+  cursor: pointer;
+}
+
+.btn-orange:active {
+  top: 2px;
 }
 
 #app {
   height: inherit;
   width: inherit;
 }
+
+#app > div {
+  float: left;
+}
+
+/*
+ * sidebar
+ */
 
 #sidebar {
   height: inherit;
@@ -121,4 +161,30 @@ h2 {
   color: #f2f2f2;
   background-color: #1f1f2b;
   cursor: pointer;
+}
+
+#main {
+  width: 75%;
+}
+
+/*
+ * dashboard
+ */
+
+#main .header {
+  height: 96px;
+  padding: 0 32px;
+  line-height: 96px;
+  text-transform: uppercase;
+  background-color: #fcfcfc;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+#main .header h2 {
+  float: left;
+}
+
+#main .header .btn-orange {
+  float: right;
+  margin-top: 24px;
 }

@@ -1,7 +1,11 @@
 define(
   [ 'backbone',
-    'views/sidebar' ],
-  function( Backbone, SidebarView ) {
+    'models/campaign',
+    'collections/tests',
+    'views/sidebar',
+    'views/dashboard',
+    'views/campaign' ],
+  function( Backbone, CampaignModel, TestsCollection, SidebarView, DashboardView, CampaignView ) {
     'use strict';
 
     return Backbone.View.extend({
@@ -20,12 +24,27 @@ define(
 
       render: function() {
         this.$el.html( this.template() );
+        this.$main = this.$el.find( '#main' );
         return this;
       },
 
       renderSidebar: function() {
         this.$sidebar = new SidebarView( { el: this.$el.find( '#sidebar' ) } );
         return this;
+      },
+
+      renderDashboard: function() {
+        this.$main.html( new DashboardView().el );
+      },
+
+      renderCampaign: function( id ) {
+        var campaignModel = new CampaignModel( { _id: id } );
+        var testsCollection = new TestsCollection( { _id: id } );
+
+        this.$main.html( new CampaignView({
+          model: campaignModel,
+          collection: testsCollection
+        }).el );
       }
     });
   }
