@@ -38,8 +38,8 @@ define(
       },
 
       renderCampaign: function( id ) {
-        var campaignModel = new CampaignModel( { _id: id } );
-        var testsCollection = new TestsCollection( { _id: id } );
+        var campaignModel = new CampaignModel( { id: id } );
+        var testsCollection = new TestsCollection( { id: id } );
 
         this.$main.html( new CampaignView({
           model: campaignModel,

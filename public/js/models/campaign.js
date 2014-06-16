@@ -4,7 +4,7 @@ define(
     'use strict';
 
     return Backbone.Model.extend({
-      idAttribute: '_id',
+      idAttribute: 'id',
 
       urlRoot: '/api/campaigns'
     });
