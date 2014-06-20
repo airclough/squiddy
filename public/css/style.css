@@ -111,7 +111,8 @@ h2 {
 #sidebar .user {
   height: 96px;
   padding: 0 16px;
-  background-color: #eb783b;
+  border-bottom: 2px solid #D16B2A;
+  background-color: #eb782f;
 }
 
 #sidebar .user .squiddy-logo {
@@ -136,7 +137,6 @@ h2 {
 }
 
 #sidebar .user .info .position {
-  color: #cccccc;
   font-weight: 100;
 }
 
@@ -159,7 +159,7 @@ h2 {
 
 #sidebar .menu li:hover {
   color: #f2f2f2;
-  background-color: #1f1f2b;
+  background-color: #43435E;
   cursor: pointer;
 }
 

@@ -12,7 +12,8 @@ module.exports = function( s4 ) {
     s4
   ];
 
-  childProcess.execFile( binPath, childArgs, function( err, stdout, stderr ) {
-    console.log( err, stdout, stderr );
+  var spawn = childProcess.spawn( binPath, childArgs );
+  spawn.stdout.on( 'data', function( data ) {
+    console.log( data );
   });
 };
