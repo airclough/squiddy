@@ -9,11 +9,12 @@ var binPath = phantomjs.path;
 module.exports = function( s4 ) {
   var childArgs = [
     path.join( __dirname, 'healthrx.js' ),
+    __dirname,
     s4
   ];
 
   var spawn = childProcess.spawn( binPath, childArgs );
   spawn.stdout.on( 'data', function( data ) {
-    console.log( data );
+    console.log( data.toString() );
   });
 };
